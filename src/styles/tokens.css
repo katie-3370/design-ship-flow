@@ -1,0 +1,187 @@
+/*
+ * Design tokens: the single source of truth for every visual value.
+ *
+ * Two layers:
+ *   1. Palette (--palette-*): raw values. Never used directly in components.
+ *   2. Semantic (--color-*, etc.): what components use. These swap for dark mode.
+ *
+ * The semantic layer lives in Tailwind's @theme, so `--color-surface`
+ * becomes `bg-surface`, `text-surface`, `border-surface`, etc. Tailwind's
+ * default palette, radii, shadows and type sizes are removed on purpose:
+ * if a class like `bg-blue-500` or `rounded-2xl` doesn't exist, the design
+ * system doesn't have that value.
+ *
+ * To change the look of the whole library, change values here. Figma
+ * variables are generated FROM this file, never the other way around.
+ */
+
+:root {
+  /* ---------- 1. Palette ---------- */
+
+  /* Neutral: slightly cool grey */
+  --palette-neutral-0: oklch(100% 0 0);
+  --palette-neutral-50: oklch(98.4% 0.003 250);
+  --palette-neutral-100: oklch(96.7% 0.004 250);
+  --palette-neutral-200: oklch(92.8% 0.006 250);
+  --palette-neutral-300: oklch(87.2% 0.009 250);
+  --palette-neutral-400: oklch(70.7% 0.015 250);
+  --palette-neutral-500: oklch(55.4% 0.018 250);
+  --palette-neutral-600: oklch(44.6% 0.018 250);
+  --palette-neutral-700: oklch(37.2% 0.018 250);
+  --palette-neutral-800: oklch(27.8% 0.016 250);
+  --palette-neutral-900: oklch(21% 0.014 250);
+  --palette-neutral-950: oklch(14.5% 0.012 250);
+
+  /* Accent: deep harbor blue */
+  --palette-accent-50: oklch(97% 0.014 245);
+  --palette-accent-100: oklch(93.2% 0.032 245);
+  --palette-accent-200: oklch(88.2% 0.059 245);
+  --palette-accent-300: oklch(80.9% 0.096 245);
+  --palette-accent-400: oklch(70.7% 0.14 245);
+  --palette-accent-500: oklch(62.3% 0.17 245);
+  --palette-accent-600: oklch(54.6% 0.175 245);
+  --palette-accent-700: oklch(48.8% 0.16 245);
+  --palette-accent-800: oklch(42.4% 0.13 245);
+  --palette-accent-900: oklch(37.9% 0.1 245);
+
+  /* Status */
+  --palette-green-100: oklch(96.2% 0.044 157);
+  --palette-green-600: oklch(52.7% 0.137 150);
+  --palette-green-400: oklch(76.5% 0.177 152);
+  --palette-amber-100: oklch(96.2% 0.059 95);
+  --palette-amber-600: oklch(55.5% 0.146 70);
+  --palette-amber-400: oklch(82.8% 0.165 84);
+  --palette-red-100: oklch(93.6% 0.032 17);
+  --palette-red-600: oklch(57.7% 0.215 27);
+  --palette-red-400: oklch(70.4% 0.191 22);
+}
+
+@theme static {
+  /* Remove Tailwind defaults so only our tokens exist */
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+
+  /* ---------- 2. Semantic (light) ---------- */
+  --color-white: var(--palette-neutral-0);
+  --color-black: var(--palette-neutral-950);
+
+  /* Backgrounds */
+  --color-bg: var(--palette-neutral-0);
+  --color-surface: var(--palette-neutral-50);
+  --color-surface-raised: var(--palette-neutral-0);
+  --color-surface-sunken: var(--palette-neutral-100);
+
+  /* Text */
+  --color-text: var(--palette-neutral-950);
+  --color-text-muted: var(--palette-neutral-600);
+  --color-text-subtle: var(--palette-neutral-500);
+  --color-text-inverse: var(--palette-neutral-0);
+
+  /* Borders */
+  --color-border: var(--palette-neutral-200);
+  --color-border-strong: var(--palette-neutral-300);
+
+  /* Primary action */
+  --color-primary: var(--palette-accent-600);
+  --color-primary-hover: var(--palette-accent-700);
+  --color-primary-fg: var(--palette-neutral-0);
+  --color-primary-subtle: var(--palette-accent-50);
+  --color-primary-subtle-fg: var(--palette-accent-800);
+
+  /* Secondary action */
+  --color-secondary: var(--palette-neutral-100);
+  --color-secondary-hover: var(--palette-neutral-200);
+  --color-secondary-fg: var(--palette-neutral-900);
+
+  /* Status */
+  --color-success: var(--palette-green-600);
+  --color-success-subtle: var(--palette-green-100);
+  --color-warning: var(--palette-amber-600);
+  --color-warning-subtle: var(--palette-amber-100);
+  --color-danger: var(--palette-red-600);
+  --color-danger-fg: var(--palette-neutral-0);
+  --color-danger-subtle: var(--palette-red-100);
+
+  /* Focus */
+  --color-focus-ring: var(--palette-accent-500);
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px 0 oklch(0% 0 0 / 0.05);
+  --shadow-md: 0 2px 8px -2px oklch(0% 0 0 / 0.08), 0 1px 2px 0 oklch(0% 0 0 / 0.04);
+  --shadow-lg: 0 12px 32px -8px oklch(0% 0 0 / 0.14), 0 2px 6px 0 oklch(0% 0 0 / 0.04);
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-lg: 18px;
+  --text-lg--line-height: 28px;
+  --text-xl: 20px;
+  --text-xl--line-height: 28px;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 32px;
+  --text-3xl: 30px;
+  --text-3xl--line-height: 36px;
+  --text-4xl: 36px;
+  --text-4xl--line-height: 44px;
+  --text-5xl: 48px;
+  --text-5xl--line-height: 56px;
+
+  /* Spacing: one base unit. `p-4` = 4 x 4px = 16px. Use multiples of 2 (8px grid) */
+  --spacing: 4px;
+}
+
+/* ---------- 2b. Semantic (dark) ---------- */
+[data-theme="dark"] {
+  --color-bg: var(--palette-neutral-950);
+  --color-surface: var(--palette-neutral-900);
+  --color-surface-raised: var(--palette-neutral-800);
+  --color-surface-sunken: oklch(11% 0.01 250);
+
+  --color-text: var(--palette-neutral-50);
+  --color-text-muted: var(--palette-neutral-400);
+  --color-text-subtle: var(--palette-neutral-500);
+  --color-text-inverse: var(--palette-neutral-950);
+
+  --color-border: var(--palette-neutral-800);
+  --color-border-strong: var(--palette-neutral-700);
+
+  --color-primary: var(--palette-accent-400);
+  --color-primary-hover: var(--palette-accent-300);
+  --color-primary-fg: var(--palette-neutral-950);
+  --color-primary-subtle: oklch(30% 0.07 245);
+  --color-primary-subtle-fg: var(--palette-accent-200);
+
+  --color-secondary: var(--palette-neutral-800);
+  --color-secondary-hover: var(--palette-neutral-700);
+  --color-secondary-fg: var(--palette-neutral-50);
+
+  --color-success: var(--palette-green-400);
+  --color-success-subtle: oklch(30% 0.06 155);
+  --color-warning: var(--palette-amber-400);
+  --color-warning-subtle: oklch(32% 0.06 80);
+  --color-danger: var(--palette-red-400);
+  --color-danger-fg: var(--palette-neutral-950);
+  --color-danger-subtle: oklch(30% 0.08 22);
+
+  --color-focus-ring: var(--palette-accent-400);
+
+  --shadow-sm: 0 1px 2px 0 oklch(0% 0 0 / 0.3);
+  --shadow-md: 0 2px 8px -2px oklch(0% 0 0 / 0.4);
+  --shadow-lg: 0 12px 32px -8px oklch(0% 0 0 / 0.5);
+}
