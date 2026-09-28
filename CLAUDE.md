@@ -18,7 +18,7 @@ Next.js (App Router) · TypeScript · Tailwind CSS v4 · cva · Storybook 10 · 
 | `src/app/globals.css` | Imports Tailwind + tokens, base styles, `dark:` variant |
 | `src/components/ui/` | Primitives (Button, Input, Card...). One file + one `.stories.tsx` each |
 | `src/components/layout/` | Container, Stack, Grid, Section. Use these instead of ad-hoc flex/grid wrappers |
-| `src/components/` | Composed components built only from primitives |
+| `src/components/` | Composed components (SiteHeader, PricingCard, AppShell...) built only from primitives. Stories under `Components/` |
 | `src/app/` | Pages. Built only from components |
 | `src/foundations/` | Storybook pages that visualise the tokens |
 | `src/lib/cn.ts` | `cn()` class merge helper |

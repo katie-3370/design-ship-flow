@@ -78,6 +78,8 @@
   --color-surface: var(--palette-stone-50);
   --color-surface-raised: var(--palette-stone-0);
   --color-surface-sunken: var(--palette-stone-100);
+  /* Form controls: inputs, selects, checkboxes */
+  --color-field: var(--palette-stone-0);
 
   /* Text */
   --color-text: var(--palette-stone-1000);
@@ -170,6 +172,7 @@
   --color-surface: var(--palette-stone-900);
   --color-surface-raised: var(--palette-stone-850);
   --color-surface-sunken: #080707;
+  --color-field: var(--palette-stone-950);
 
   --color-text: var(--palette-stone-25);
   --color-text-muted: var(--palette-stone-400);
