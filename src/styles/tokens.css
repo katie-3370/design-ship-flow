@@ -13,47 +13,52 @@
  *
  * To change the look of the whole library, change values here. Figma
  * variables are generated FROM this file, never the other way around.
+ *
+ * Look: warm monochrome. Off-white paper, near-black ink, pill-shaped
+ * actions, large soft cards, hairline borders, light-weight display type.
+ * Color is reserved for links, focus and status.
  */
 
 :root {
   /* ---------- 1. Palette ---------- */
 
-  /* Neutral: slightly cool grey */
-  --palette-neutral-0: oklch(100% 0 0);
-  --palette-neutral-50: oklch(98.4% 0.003 250);
-  --palette-neutral-100: oklch(96.7% 0.004 250);
-  --palette-neutral-200: oklch(92.8% 0.006 250);
-  --palette-neutral-300: oklch(87.2% 0.009 250);
-  --palette-neutral-400: oklch(70.7% 0.015 250);
-  --palette-neutral-500: oklch(55.4% 0.018 250);
-  --palette-neutral-600: oklch(44.6% 0.018 250);
-  --palette-neutral-700: oklch(37.2% 0.018 250);
-  --palette-neutral-800: oklch(27.8% 0.016 250);
-  --palette-neutral-900: oklch(21% 0.014 250);
-  --palette-neutral-950: oklch(14.5% 0.012 250);
+  /* Stone: warm neutral, the whole UI is built from this */
+  --palette-stone-0: #ffffff;
+  --palette-stone-25: #fdfcfc;
+  --palette-stone-50: #f5f3f1;
+  --palette-stone-100: #ebe8e4;
+  --palette-stone-200: #dedad5;
+  --palette-stone-300: #c9c4bd;
+  --palette-stone-400: #a59f97;
+  --palette-stone-500: #777169;
+  --palette-stone-600: #59544f;
+  --palette-stone-700: #423e3a;
+  --palette-stone-800: #2b2926;
+  --palette-stone-850: #211f1d;
+  --palette-stone-900: #171614;
+  --palette-stone-950: #0c0b0a;
+  --palette-stone-1000: #000000;
 
-  /* Accent: deep harbor blue */
-  --palette-accent-50: oklch(97% 0.014 245);
-  --palette-accent-100: oklch(93.2% 0.032 245);
-  --palette-accent-200: oklch(88.2% 0.059 245);
-  --palette-accent-300: oklch(80.9% 0.096 245);
-  --palette-accent-400: oklch(70.7% 0.14 245);
-  --palette-accent-500: oklch(62.3% 0.17 245);
-  --palette-accent-600: oklch(54.6% 0.175 245);
-  --palette-accent-700: oklch(48.8% 0.16 245);
-  --palette-accent-800: oklch(42.4% 0.13 245);
-  --palette-accent-900: oklch(37.9% 0.1 245);
+  /* Blue: links and focus only */
+  --palette-blue-100: #e6efff;
+  --palette-blue-300: #9cc2ff;
+  --palette-blue-400: #6aa5ff;
+  --palette-blue-600: #0a59d2;
+  --palette-blue-900: #0b2a5c;
 
   /* Status */
-  --palette-green-100: oklch(96.2% 0.044 157);
-  --palette-green-600: oklch(52.7% 0.137 150);
-  --palette-green-400: oklch(76.5% 0.177 152);
-  --palette-amber-100: oklch(96.2% 0.059 95);
-  --palette-amber-600: oklch(55.5% 0.146 70);
-  --palette-amber-400: oklch(82.8% 0.165 84);
-  --palette-red-100: oklch(93.6% 0.032 17);
-  --palette-red-600: oklch(57.7% 0.215 27);
-  --palette-red-400: oklch(70.4% 0.191 22);
+  --palette-green-100: #e3f5e9;
+  --palette-green-400: #5ad18b;
+  --palette-green-600: #16874a;
+  --palette-green-900: #0f2e1d;
+  --palette-amber-100: #fcf0d9;
+  --palette-amber-400: #f2bc55;
+  --palette-amber-600: #a8650a;
+  --palette-amber-900: #33230c;
+  --palette-red-100: #fde6e7;
+  --palette-red-400: #ff6b76;
+  --palette-red-600: #d9182b;
+  --palette-red-900: #3a1216;
 }
 
 @theme static {
@@ -65,36 +70,40 @@
   --font-*: initial;
 
   /* ---------- 2. Semantic (light) ---------- */
-  --color-white: var(--palette-neutral-0);
-  --color-black: var(--palette-neutral-950);
+  --color-white: var(--palette-stone-0);
+  --color-black: var(--palette-stone-1000);
 
   /* Backgrounds */
-  --color-bg: var(--palette-neutral-0);
-  --color-surface: var(--palette-neutral-50);
-  --color-surface-raised: var(--palette-neutral-0);
-  --color-surface-sunken: var(--palette-neutral-100);
+  --color-bg: var(--palette-stone-25);
+  --color-surface: var(--palette-stone-50);
+  --color-surface-raised: var(--palette-stone-0);
+  --color-surface-sunken: var(--palette-stone-100);
 
   /* Text */
-  --color-text: var(--palette-neutral-950);
-  --color-text-muted: var(--palette-neutral-600);
-  --color-text-subtle: var(--palette-neutral-500);
-  --color-text-inverse: var(--palette-neutral-0);
+  --color-text: var(--palette-stone-1000);
+  --color-text-muted: var(--palette-stone-600);
+  --color-text-subtle: var(--palette-stone-500);
+  --color-text-inverse: var(--palette-stone-0);
 
-  /* Borders */
-  --color-border: var(--palette-neutral-200);
-  --color-border-strong: var(--palette-neutral-300);
+  /* Borders: translucent ink, so they sit on any surface */
+  --color-border: oklch(0% 0 0 / 0.08);
+  --color-border-strong: oklch(0% 0 0 / 0.16);
 
-  /* Primary action */
-  --color-primary: var(--palette-accent-600);
-  --color-primary-hover: var(--palette-accent-700);
-  --color-primary-fg: var(--palette-neutral-0);
-  --color-primary-subtle: var(--palette-accent-50);
-  --color-primary-subtle-fg: var(--palette-accent-800);
+  /* Primary action: ink */
+  --color-primary: var(--palette-stone-1000);
+  --color-primary-hover: var(--palette-stone-800);
+  --color-primary-fg: var(--palette-stone-0);
+  --color-primary-subtle: var(--palette-stone-100);
+  --color-primary-subtle-fg: var(--palette-stone-1000);
 
-  /* Secondary action */
-  --color-secondary: var(--palette-neutral-100);
-  --color-secondary-hover: var(--palette-neutral-200);
-  --color-secondary-fg: var(--palette-neutral-900);
+  /* Secondary action: paper */
+  --color-secondary: var(--palette-stone-0);
+  --color-secondary-hover: var(--palette-stone-50);
+  --color-secondary-fg: var(--palette-stone-1000);
+
+  /* Accent: links */
+  --color-accent: var(--palette-blue-600);
+  --color-accent-subtle: var(--palette-blue-100);
 
   /* Status */
   --color-success: var(--palette-green-600);
@@ -102,22 +111,24 @@
   --color-warning: var(--palette-amber-600);
   --color-warning-subtle: var(--palette-amber-100);
   --color-danger: var(--palette-red-600);
-  --color-danger-fg: var(--palette-neutral-0);
+  --color-danger-fg: var(--palette-stone-0);
   --color-danger-subtle: var(--palette-red-100);
 
   /* Focus */
-  --color-focus-ring: var(--palette-accent-500);
+  --color-focus-ring: var(--palette-blue-600);
 
-  /* Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  /* Radius: small for inputs, large and soft for cards. Pills use rounded-full */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
 
-  /* Elevation */
-  --shadow-sm: 0 1px 2px 0 oklch(0% 0 0 / 0.05);
-  --shadow-md: 0 2px 8px -2px oklch(0% 0 0 / 0.08), 0 1px 2px 0 oklch(0% 0 0 / 0.04);
-  --shadow-lg: 0 12px 32px -8px oklch(0% 0 0 / 0.14), 0 2px 6px 0 oklch(0% 0 0 / 0.04);
+  /* Elevation: hairline rings more than drop shadows */
+  --shadow-xs: 0 0 0 1px oklch(0% 0 0 / 0.06), 0 1px 2px 0 oklch(0% 0 0 / 0.04);
+  --shadow-sm: 0 0 0 0.5px oklch(0% 0 0 / 0.08), 0 2px 6px 0 oklch(0% 0 0 / 0.04);
+  --shadow-md: 0 0 0 0.5px oklch(0% 0 0 / 0.08), 0 8px 24px -6px oklch(0% 0 0 / 0.08);
+  --shadow-lg: 0 0 0 0.5px oklch(0% 0 0 / 0.08), 0 24px 56px -12px oklch(0% 0 0 / 0.16);
 
   /* Typography */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
@@ -135,12 +146,19 @@
   --text-xl--line-height: 28px;
   --text-2xl: 24px;
   --text-2xl--line-height: 32px;
-  --text-3xl: 30px;
-  --text-3xl--line-height: 36px;
-  --text-4xl: 36px;
-  --text-4xl--line-height: 44px;
+  --text-3xl: 32px;
+  --text-3xl--line-height: 38px;
+  --text-4xl: 40px;
+  --text-4xl--line-height: 46px;
   --text-5xl: 48px;
-  --text-5xl--line-height: 56px;
+  --text-5xl--line-height: 52px;
+  --text-6xl: 64px;
+  --text-6xl--line-height: 68px;
+
+  /* Display headings are light and tightly tracked */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.01em;
 
   /* Spacing: one base unit. `p-4` = 4 x 4px = 16px. Use multiples of 2 (8px grid) */
   --spacing: 4px;
@@ -148,40 +166,44 @@
 
 /* ---------- 2b. Semantic (dark) ---------- */
 [data-theme="dark"] {
-  --color-bg: var(--palette-neutral-950);
-  --color-surface: var(--palette-neutral-900);
-  --color-surface-raised: var(--palette-neutral-800);
-  --color-surface-sunken: oklch(11% 0.01 250);
+  --color-bg: var(--palette-stone-950);
+  --color-surface: var(--palette-stone-900);
+  --color-surface-raised: var(--palette-stone-850);
+  --color-surface-sunken: #080707;
 
-  --color-text: var(--palette-neutral-50);
-  --color-text-muted: var(--palette-neutral-400);
-  --color-text-subtle: var(--palette-neutral-500);
-  --color-text-inverse: var(--palette-neutral-950);
+  --color-text: var(--palette-stone-25);
+  --color-text-muted: var(--palette-stone-400);
+  --color-text-subtle: var(--palette-stone-500);
+  --color-text-inverse: var(--palette-stone-1000);
 
-  --color-border: var(--palette-neutral-800);
-  --color-border-strong: var(--palette-neutral-700);
+  --color-border: oklch(100% 0 0 / 0.1);
+  --color-border-strong: oklch(100% 0 0 / 0.2);
 
-  --color-primary: var(--palette-accent-400);
-  --color-primary-hover: var(--palette-accent-300);
-  --color-primary-fg: var(--palette-neutral-950);
-  --color-primary-subtle: oklch(30% 0.07 245);
-  --color-primary-subtle-fg: var(--palette-accent-200);
+  --color-primary: var(--palette-stone-25);
+  --color-primary-hover: var(--palette-stone-200);
+  --color-primary-fg: var(--palette-stone-1000);
+  --color-primary-subtle: var(--palette-stone-800);
+  --color-primary-subtle-fg: var(--palette-stone-25);
 
-  --color-secondary: var(--palette-neutral-800);
-  --color-secondary-hover: var(--palette-neutral-700);
-  --color-secondary-fg: var(--palette-neutral-50);
+  --color-secondary: var(--palette-stone-850);
+  --color-secondary-hover: var(--palette-stone-800);
+  --color-secondary-fg: var(--palette-stone-25);
+
+  --color-accent: var(--palette-blue-400);
+  --color-accent-subtle: var(--palette-blue-900);
 
   --color-success: var(--palette-green-400);
-  --color-success-subtle: oklch(30% 0.06 155);
+  --color-success-subtle: var(--palette-green-900);
   --color-warning: var(--palette-amber-400);
-  --color-warning-subtle: oklch(32% 0.06 80);
+  --color-warning-subtle: var(--palette-amber-900);
   --color-danger: var(--palette-red-400);
-  --color-danger-fg: var(--palette-neutral-950);
-  --color-danger-subtle: oklch(30% 0.08 22);
+  --color-danger-fg: var(--palette-stone-1000);
+  --color-danger-subtle: var(--palette-red-900);
 
-  --color-focus-ring: var(--palette-accent-400);
+  --color-focus-ring: var(--palette-blue-400);
 
-  --shadow-sm: 0 1px 2px 0 oklch(0% 0 0 / 0.3);
-  --shadow-md: 0 2px 8px -2px oklch(0% 0 0 / 0.4);
-  --shadow-lg: 0 12px 32px -8px oklch(0% 0 0 / 0.5);
+  --shadow-xs: 0 0 0 1px oklch(100% 0 0 / 0.08);
+  --shadow-sm: 0 0 0 1px oklch(100% 0 0 / 0.08), 0 2px 6px 0 oklch(0% 0 0 / 0.3);
+  --shadow-md: 0 0 0 1px oklch(100% 0 0 / 0.08), 0 8px 24px -6px oklch(0% 0 0 / 0.5);
+  --shadow-lg: 0 0 0 1px oklch(100% 0 0 / 0.08), 0 24px 56px -12px oklch(0% 0 0 / 0.6);
 }

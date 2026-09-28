@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
 import { fontMono, fontSans } from "@/fonts";
 import "./globals.css";
 
@@ -8,7 +10,7 @@ export const metadata: Metadata = {
     "Test project for a designer-to-code workflow where code is the component source of truth.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html
       lang="en"
