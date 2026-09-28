@@ -17,6 +17,7 @@ Next.js (App Router) · TypeScript · Tailwind CSS v4 · cva · Storybook 10 · 
 | `src/styles/tokens.css` | ALL design tokens. Palette + semantic layer, light and dark |
 | `src/app/globals.css` | Imports Tailwind + tokens, base styles, `dark:` variant |
 | `src/components/ui/` | Primitives (Button, Input, Card...). One file + one `.stories.tsx` each |
+| `src/components/layout/` | Container, Stack, Grid, Section. Use these instead of ad-hoc flex/grid wrappers |
 | `src/components/` | Composed components built only from primitives |
 | `src/app/` | Pages. Built only from components |
 | `src/foundations/` | Storybook pages that visualise the tokens |
@@ -27,7 +28,7 @@ Next.js (App Router) · TypeScript · Tailwind CSS v4 · cva · Storybook 10 · 
 1. **Tokens only.** Never use hex/rgb/oklch values, `style={{}}` for visual values, or arbitrary
    Tailwind values like `p-[13px]`, `text-[#333]`, `rounded-[6px]`. Tailwind's default palette,
    radii, shadows and type sizes are deliberately removed; if a class doesn't exist, the value
-   isn't in the system.
+   isn't in the system. The one exception is viewport layout constraints (e.g. `max-h-[85vh]`).
 2. **Semantic colors only.** Use `bg-surface`, `text-text-muted`, `border-border`, `bg-primary`...
    Never reference `--palette-*` from a component.
 3. **Reuse before creating.** Check `src/components/ui/` first. If a design needs something the
@@ -40,7 +41,12 @@ Next.js (App Router) · TypeScript · Tailwind CSS v4 · cva · Storybook 10 · 
 6. **Accessible by default**: real elements (`button`, `a`, `label`), visible focus, keyboard
    support, sufficient contrast in both themes. Check stories in light AND dark.
 7. **Spacing on the 8px grid**: prefer even spacing steps (`gap-2`, `p-4`, `py-6`). Base unit is 4px.
-8. **Never push to `main`.** Work on a branch named `design/<short-name>`, open a PR.
+8. **Use the primitives for type and layout.** `Heading`/`Text` for copy, `Stack`/`Grid`/`Container`/
+   `Section` for layout. Import from `@/components/ui` and `@/components/layout`.
+9. **The look is warm monochrome.** Ink (`primary`) for main actions, pill buttons, large soft cards
+   (`rounded-xl`), hairline rings (`shadow-xs`) over heavy shadows, light display headings.
+   Color only for links (`accent`), focus and status.
+10. **Never push to `main`.** Work on a branch named `design/<short-name>`, open a PR.
 
 ## Building from a Figma frame
 

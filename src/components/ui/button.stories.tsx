@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { ArrowRight, Play } from "lucide-react";
 
 import { Button } from "./button";
 
@@ -25,6 +26,28 @@ export const Outline: Story = { args: { variant: "outline" } };
 export const Ghost: Story = { args: { variant: "ghost" } };
 export const Danger: Story = { args: { variant: "danger", children: "Delete" } };
 export const Disabled: Story = { args: { disabled: true } };
+
+export const WithIcon: Story = {
+  render: () => (
+    <div className="flex gap-3">
+      <Button>
+        <Play /> Play sample
+      </Button>
+      <Button variant="secondary">
+        Learn more <ArrowRight />
+      </Button>
+    </div>
+  ),
+};
+
+export const AsLink: Story = {
+  name: "As link (asChild)",
+  render: () => (
+    <Button asChild variant="secondary">
+      <a href="#pricing">See pricing</a>
+    </Button>
+  ),
+};
 
 export const AllVariants: Story = {
   render: () => (

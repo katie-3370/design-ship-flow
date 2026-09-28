@@ -40,11 +40,12 @@ function Code({ children }: { children: ReactNode }) {
 }
 
 const colorGroups: [string, (name: string) => boolean][] = [
-  ["Backgrounds", (n) => /--color-(bg|surface)/.test(n)],
+  ["Backgrounds", (n) => /--color-(bg|surface|white|black)$|--color-surface/.test(n)],
   ["Text", (n) => n.startsWith("--color-text")],
   ["Borders & focus", (n) => /--color-(border|focus)/.test(n)],
   ["Primary", (n) => n.startsWith("--color-primary")],
   ["Secondary", (n) => n.startsWith("--color-secondary")],
+  ["Accent", (n) => n.startsWith("--color-accent")],
   ["Status", (n) => /--color-(success|warning|danger)/.test(n)],
 ];
 
@@ -91,7 +92,7 @@ export const Palette: Story = {
       title="Palette"
       intro="Raw values the semantic colors point to. Change a hue here and every semantic color built on it follows."
     >
-      {["neutral", "accent", "green", "amber", "red"].map((hue) => (
+      {["stone", "blue", "green", "amber", "red"].map((hue) => (
         <Group key={hue} label={hue}>
           <div className="flex flex-wrap gap-2">
             {tokenNames.palette

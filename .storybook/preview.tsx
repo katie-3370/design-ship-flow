@@ -41,7 +41,7 @@ const preview: Preview = {
       },
     },
     options: {
-      storySort: { order: ["Foundations", "Primitives", "Components", "Pages"] },
+      storySort: { order: ["Foundations", "Primitives", "Layout", "Components", "Pages"] },
     },
     a11y: {
       // 'todo' shows violations in the test UI only; switch to 'error' to fail CI on them
