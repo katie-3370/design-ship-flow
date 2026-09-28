@@ -22,7 +22,7 @@ export function Checkbox({ className, label, description, id, ...props }: Checkb
     <CheckboxPrimitive.Root
       id={boxId}
       className={cn(
-        "peer flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-xs bg-surface-raised shadow-xs transition-colors disabled:cursor-not-allowed disabled:opacity-40 data-[state=checked]:bg-primary data-[state=checked]:text-primary-fg data-[state=checked]:shadow-none",
+        "peer flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-xs bg-field shadow-xs transition-colors disabled:cursor-not-allowed disabled:opacity-40 data-[state=checked]:bg-primary data-[state=checked]:text-primary-fg data-[state=checked]:shadow-none",
         className,
       )}
       {...props}

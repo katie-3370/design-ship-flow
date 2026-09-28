@@ -40,7 +40,7 @@ function Code({ children }: { children: ReactNode }) {
 }
 
 const colorGroups: [string, (name: string) => boolean][] = [
-  ["Backgrounds", (n) => /--color-(bg|surface|white|black)$|--color-surface/.test(n)],
+  ["Backgrounds", (n) => /--color-(bg|surface|field|white|black)/.test(n)],
   ["Text", (n) => n.startsWith("--color-text")],
   ["Borders & focus", (n) => /--color-(border|focus)/.test(n)],
   ["Primary", (n) => n.startsWith("--color-primary")],
