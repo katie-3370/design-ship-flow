@@ -48,9 +48,42 @@ Next.js (App Router) · TypeScript · Tailwind CSS v4 · cva · Storybook 10 · 
    Color only for links (`accent`), focus and status.
 10. **Never push to `main`.** Work on a branch named `design/<short-name>`, open a PR.
 
+## Figma
+
+File: **Harbor Design System** — https://www.figma.com/design/H6SamGGGOWQN1tI2caZYiM
+Pages: Cover · Foundations · Primitives · Composed · **Sandbox** (where new components are designed).
+
+The Figma library is generated **from** this repo. Code wins every conflict: if a frame uses a value
+that isn't in `tokens.css`, treat it as a proposal for a new token, not something to hard-code.
+
+Agilno's Figma is on the Pro plan, so there is no Code Connect. Instead, every Figma component's
+description says the exact code to use, and this table is the map:
+
+| Figma component | Figma properties | Code |
+| --- | --- | --- |
+| Button | Variant, Size, Disabled, Label, Leading/Trailing icon | `<Button variant size disabled>` (ui) |
+| Badge | Variant, Dot, Label | `<Badge variant dot>` (ui) |
+| Avatar | Size, Initials | `<Avatar name size src>` (ui) |
+| Input | State, Label, Value, Hint | `<Field label hint error><Input /></Field>` (ui) |
+| Select / Select menu | State, Label, Value | `<Select>` + `<SelectTrigger>` / `<SelectContent>` (ui) |
+| Checkbox | Checked, Disabled, Label, Description | `<Checkbox label description>` (ui) |
+| Switch | On, Disabled, Label, Description | `<Switch label description>` (ui) |
+| Tab / Tabs | State, Label | `<Tabs><TabsList><TabsTrigger>` (ui) |
+| Card | Variant, Padding, Title, Description | `<Card variant padding>` + `CardHeader/Title/Description/Footer` (ui) |
+| StatCard | Sentiment, Label, Value, Delta | `<StatCard label value delta sentiment>` (components) |
+| FeatureCard | Icon, Title, Description | `<FeatureCard icon title description>` (components) |
+| PricingCard | Featured, Name, Price, Description | `<PricingCard ... featured>` (components) |
+| Icon/* | — | `lucide-react` icon of the same name |
+
+Variables map 1:1 to Tailwind classes: Figma `Background/surface` = `bg-surface`,
+`Text/text-muted` = `text-text-muted`, `Border/border` = `border-border`, `radius/lg` = `rounded-lg`,
+`space/4` = `p-4` / `gap-4` (16px). Text styles: `Heading/lg` = `<Heading size="lg">`,
+`Body/sm` = `<Text size="sm">`. Shadow styles = `shadow-xs` … `shadow-lg`.
+
 ## Building from a Figma frame
 
 1. Read the frame with the Figma MCP (`get_design_context`, `get_screenshot`, `get_variable_defs`).
+   Instances tell you which component and props to use; bound variables tell you which token.
 2. Map every layer to an existing component or token. Report the mapping and any gaps first.
 3. Build the component + stories, and use it on a page if asked.
 4. Run `npm run check` and `npm run build-storybook`; both must pass.
@@ -61,5 +94,6 @@ Next.js (App Router) · TypeScript · Tailwind CSS v4 · cva · Storybook 10 · 
 
 - `npm run dev`: app at http://localhost:3000
 - `npm run storybook`: component catalog at http://localhost:6006
-- `npm run check`: lint + typecheck + format check + production build
+- `npm run check`: token guardrail + lint + typecheck + format check + production build
+- `npm run check:tokens`: only the token guardrail (raw colors, arbitrary values, inline styles)
 - `npm run format`: auto-format everything
