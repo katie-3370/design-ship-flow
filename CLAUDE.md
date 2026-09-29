@@ -64,6 +64,7 @@ description says the exact code to use, and this table is the map:
 | Button | Variant, Size, Disabled, Label, Leading/Trailing icon | `<Button variant size disabled>` (ui) |
 | Badge | Variant, Dot, Label | `<Badge variant dot>` (ui) |
 | Avatar | Size, Initials | `<Avatar name size src>` (ui) |
+| Rating | Value, Size, Show value | `<Rating value={3.5} size showValue>` (ui) |
 | Input | State, Label, Value, Hint | `<Field label hint error><Input /></Field>` (ui) |
 | Select / Select menu | State, Label, Value | `<Select>` + `<SelectTrigger>` / `<SelectContent>` (ui) |
 | Checkbox | Checked, Disabled, Label, Description | `<Checkbox label description>` (ui) |
