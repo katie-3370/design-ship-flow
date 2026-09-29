@@ -6,13 +6,15 @@
 
 <!-- Link to the frame or component this implements. -->
 
-## Screenshot or preview
+## Previews
 
-<!-- Paste a screenshot, or link the Vercel preview / Storybook story. -->
+- Site: Vercel posts a preview link below
+- Storybook: Chromatic posts a "Storybook Publish" link in the checks
+- Stories to review: <!-- e.g. Components/Testimonial, Primitives/Rating -->
 
 ## Components and tokens used
 
-- 
+-
 
 ## New tokens or primitives added
 

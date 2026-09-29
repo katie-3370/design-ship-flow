@@ -1,0 +1,30 @@
+name: Chromatic
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Publish Storybook and run visual tests
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build-storybook
+          # Visual changes don't fail CI; they show up as "UI Tests" to review in Chromatic
+          exitZeroOnChanges: true
+          # Whatever is merged to main becomes the new visual baseline
+          autoAcceptChanges: main
+          # Only snapshot stories affected by the change (faster, fewer snapshots)
+          onlyChanged: true
