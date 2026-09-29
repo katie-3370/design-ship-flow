@@ -1,7 +1,7 @@
 import { Code2, Eye, PenTool, GitMerge, GitPullRequest, Palette } from "lucide-react";
 import Link from "next/link";
 
-import { FeatureCard, PricingTable, SiteFooter, SiteHeader } from "@/components";
+import { FeatureCard, PricingTable, RatingCard, SiteFooter, SiteHeader } from "@/components";
 import { Container, Grid, Section, Stack } from "@/components/layout";
 import {
   Badge,
@@ -14,6 +14,31 @@ import {
   TabsTrigger,
   Text,
 } from "@/components/ui";
+
+const reviews = [
+  {
+    rating: 5,
+    date: "2026-03-12",
+    quote:
+      "We used to lose a week between the final frame and a merged PR. Now I open the pull request myself, review the stories in Chromatic, and the tokens keep everyone honest.",
+    name: "Katie Proulx",
+    title: "Senior Product Designer",
+  },
+  {
+    rating: 4.5,
+    date: "2026-02-03",
+    quote: "Reviews are about the product now, not about which grey someone picked.",
+    name: "Marco Ilić",
+    title: "Frontend Lead",
+  },
+  {
+    rating: 4,
+    date: "2026-01-19",
+    quote: "Every new component lands with stories for each state. QA finally has a map.",
+    name: "Ana Petrović",
+    title: "QA Engineer",
+  },
+];
 
 const features = [
   {
@@ -181,6 +206,24 @@ export default function Home() {
                       </Text>
                     </Stack>
                   </Card>
+                ))}
+              </Grid>
+            </Stack>
+          </Container>
+        </Section>
+
+        <Section id="reviews">
+          <Container size="xl">
+            <Stack gap={10}>
+              <Heading size="xl">What teams are saying</Heading>
+              <Grid cols={3} gap={4}>
+                {reviews.map((r, i) => (
+                  <RatingCard
+                    key={r.name}
+                    {...r}
+                    elevation={i === 0 ? "raised" : "surface"}
+                    className={i === 0 ? "sm:col-span-2 lg:row-span-2" : undefined}
+                  />
                 ))}
               </Grid>
             </Stack>

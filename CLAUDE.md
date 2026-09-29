@@ -73,6 +73,7 @@ description says the exact code to use, and this table is the map:
 | Card | Variant, Padding, Title, Description | `<Card variant padding>` + `CardHeader/Title/Description/Footer` (ui) |
 | StatCard | Sentiment, Label, Value, Delta | `<StatCard label value delta sentiment>` (components) |
 | FeatureCard | Icon, Title, Description | `<FeatureCard icon title description>` (components) |
+| RatingCard | Elevation, Rating, Date, Quote, Name, Title | `<RatingCard elevation rating date quote name title>` (components) |
 | PricingCard | Featured, Name, Price, Description | `<PricingCard ... featured>` (components) |
 | Icon/* | — | `lucide-react` icon of the same name |
 
