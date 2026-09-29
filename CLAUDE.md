@@ -97,3 +97,12 @@ Variables map 1:1 to Tailwind classes: Figma `Background/surface` = `bg-surface`
 - `npm run check`: token guardrail + lint + typecheck + format check + production build
 - `npm run check:tokens`: only the token guardrail (raw colors, arbitrary values, inline styles)
 - `npm run format`: auto-format everything
+
+## Storybook online (Chromatic)
+
+Every PR publishes Storybook to Chromatic and compares each story with `main`.
+
+- The PR gets two checks: **Storybook Publish** (link to this branch's Storybook) and **UI Tests**
+  (stories that look different from `main`, to accept or deny in Chromatic).
+- Visual changes don't fail CI; the designer reviews them. Merging to `main` accepts them as the new baseline.
+- In every PR description, list the stories to review under "Previews" (e.g. `Primitives/Rating`).
