@@ -4,6 +4,7 @@ export * from "./feature-card";
 export * from "./logo";
 export * from "./pricing-card";
 export * from "./pricing-table";
+export * from "./rating-card";
 export * from "./site-footer";
 export * from "./site-header";
 export * from "./stat-card";
