@@ -47,6 +47,7 @@ const colorGroups: [string, (name: string) => boolean][] = [
   ["Secondary", (n) => n.startsWith("--color-secondary")],
   ["Accent", (n) => n.startsWith("--color-accent")],
   ["Status", (n) => /--color-(success|warning|danger)/.test(n)],
+  ["Rating", (n) => n.startsWith("--color-rating")],
 ];
 
 function Swatch({ name }: { name: string }) {

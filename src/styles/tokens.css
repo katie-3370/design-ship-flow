@@ -53,6 +53,7 @@
   --palette-green-900: #0f2e1d;
   --palette-amber-100: #fcf0d9;
   --palette-amber-400: #f2bc55;
+  --palette-amber-500: #e7a425;
   --palette-amber-600: #a8650a;
   --palette-amber-900: #33230c;
   --palette-red-100: #fde6e7;
@@ -115,6 +116,9 @@
   --color-danger: var(--palette-red-600);
   --color-danger-fg: var(--palette-stone-0);
   --color-danger-subtle: var(--palette-red-100);
+
+  /* Rating: star fill. The one decorative color, used only by <Rating> */
+  --color-rating: var(--palette-amber-500);
 
   /* Focus */
   --color-focus-ring: var(--palette-blue-600);
@@ -202,6 +206,8 @@
   --color-danger: var(--palette-red-400);
   --color-danger-fg: var(--palette-stone-1000);
   --color-danger-subtle: var(--palette-red-900);
+
+  --color-rating: var(--palette-amber-400);
 
   --color-focus-ring: var(--palette-blue-400);
 
